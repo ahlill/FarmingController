@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:id="@+id/pb_hum"
+        style="@style/CircularDeterminateProgressBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pb_temp"
+        app:layout_constraintStart_toStartOf="@+id/btn_state"
+        app:layout_constraintTop_toTopOf="@+id/pb_temp"
+        android:animationResolution="500000"
+        android:max="100"
+        tools:progress="30" />
+
+    <TextView
+        android:id="@+id/tv_hum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="- -"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/pb_hum"
+        app:layout_constraintEnd_toEndOf="@+id/pb_hum"
+        app:layout_constraintStart_toStartOf="@+id/pb_hum"
+        app:layout_constraintTop_toTopOf="@+id/pb_hum" />
+
+    <ProgressBar
+        android:id="@+id/pb_temp"
+        style="@style/CircularDeterminateProgressBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_state"
+        app:layout_constraintEnd_toEndOf="@+id/btn_state"
+        app:layout_constraintStart_toEndOf="@+id/pb_hum"
+        android:animationResolution="1000"
+        android:max="100"
+        tools:progress="90" />
+
+    <TextView
+        android:id="@+id/tv_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="- -"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/pb_temp"
+        app:layout_constraintEnd_toEndOf="@+id/pb_temp"
+        app:layout_constraintStart_toStartOf="@+id/pb_temp"
+        app:layout_constraintTop_toTopOf="@+id/pb_temp" />
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardCornerRadius="20dp"-->
+<!--        app:cardElevation="4dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.5">-->
+
+        <Button
+            android:id="@+id/btn_state"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shaping_rectangle_button_control"
+            android:textColor="@color/purple_500"
+            android:gravity="center"
+            android:text="state"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+<!--    </androidx.cardview.widget.CardView>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <com.borutsky.neumorphism.NeumorphicFrameLayout-->
+    <!--        android:id="@+id/firstBlock"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:layout_marginTop="100dp"-->
+    <!--        android:layout_marginBottom="30dp"-->
+    <!--        app:background_color="@color/purple_200"-->
+    <!--        app:corner_radius="20dp"-->
+    <!--        app:shape="rectangle">-->
+
+    <!--        &lt;!&ndash;inside this frame layout we are creating a simple text view&ndash;&gt;-->
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:text="Press Me"-->
+    <!--            android:textColor="@color/white" />-->
+
+    <!--    </com.borutsky.neumorphism.NeumorphicFrameLayout>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:clipChildren="false"-->
+    <!--        android:padding="20dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:weightSum="2">-->
+
+    <!--        <com.borutsky.neumorphism.NeumorphicFrameLayout-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="120dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:padding="20dp"-->
+    <!--            android:clipChildren="false"-->
+    <!--            android:layout_marginStart="20dp"-->
+    <!--            app:background_color="@color/neumorphism"-->
+    <!--            app:corner_radius="20dp"-->
+    <!--            app:shape="circle">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/humidity"-->
+    <!--                android:padding="20dp"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:clipChildren="false"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:text="Hello World!" />-->
+
+    <!--        </com.borutsky.neumorphism.NeumorphicFrameLayout>-->
+
+    <!--        <com.borutsky.neumorphism.NeumorphicFrameLayout-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:layout_height="80dp"-->
+    <!--            android:background="@color/neumorphism"-->
+    <!--            app:background_color="@android:color/white"-->
+    <!--            android:layout_marginEnd="20dp"-->
+    <!--            app:corner_radius="20dp"-->
+    <!--            app:state="concave"-->
+    <!--            app:shape="circle">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/temperature"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:text="Hello World!" />-->
+
+    <!--        </com.borutsky.neumorphism.NeumorphicFrameLayout>-->
+    <!--    </LinearLayout>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/linearLayout"-->
+    <!--        android:visibility="gone"-->
+    <!--        android:gravity="center"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/linearLayout"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout">-->
+
+    <!--        <com.borutsky.neumorphism.NeumorphicFrameLayout-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            app:background_color="@color/neumorphism"-->
+    <!--            app:corner_radius="40dp"-->
+    <!--            app:shape="rectangle">-->
+
+    <!--            <Button-->
+    <!--                android:id="@+id/bnt_state"-->
+    <!--                android:layout_width="300dp"-->
+    <!--                android:layout_height="120dp"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:layout_margin="20dp"-->
+    <!--                android:background="@android:color/transparent"-->
+    <!--                android:text="Hello World!"-->
+    <!--                android:textColor="@color/black" />-->
+
+    <!--        </com.borutsky.neumorphism.NeumorphicFrameLayout>-->
+    <!--    </LinearLayout>-->
+

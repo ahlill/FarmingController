@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "148794192839",
+    "project_id": "farmingcontroller",
+    "storage_bucket": "farmingcontroller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148794192839:android:d23cabcd2b6182eab49fe2",
+        "android_client_info": {
+          "package_name": "id.belajar.controller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148794192839-ue799ei0q49vfj1t87qf3r2ogujunnoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClEh7E5YSHTFrhWmxjt_L3YIwZOOoJinw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148794192839-ue799ei0q49vfj1t87qf3r2ogujunnoh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
