@@ -7,82 +7,113 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ProgressBar
-        android:id="@+id/pb_hum"
-        style="@style/CircularDeterminateProgressBar"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="@+id/pb_temp"
-        app:layout_constraintStart_toStartOf="@+id/btn_state"
-        app:layout_constraintTop_toTopOf="@+id/pb_temp"
-        android:animationResolution="500000"
-        android:max="100"
-        tools:progress="30" />
-
-    <TextView
-        android:id="@+id/tv_hum"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="- -"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/pb_hum"
-        app:layout_constraintEnd_toEndOf="@+id/pb_hum"
-        app:layout_constraintStart_toStartOf="@+id/pb_hum"
-        app:layout_constraintTop_toTopOf="@+id/pb_hum" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1">
 
-    <ProgressBar
-        android:id="@+id/pb_temp"
-        style="@style/CircularDeterminateProgressBar"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_state"
-        app:layout_constraintEnd_toEndOf="@+id/btn_state"
-        app:layout_constraintStart_toEndOf="@+id/pb_hum"
-        android:animationResolution="1000"
-        android:max="100"
-        tools:progress="90" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="- -"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/pb_temp"
-        app:layout_constraintEnd_toEndOf="@+id/pb_temp"
-        app:layout_constraintStart_toStartOf="@+id/pb_temp"
-        app:layout_constraintTop_toTopOf="@+id/pb_temp" />
+            <ProgressBar
+                android:id="@+id/pb_hum"
+                style="@style/CircularDeterminateProgressBar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="@+id/pb_temp"
+                app:layout_constraintStart_toStartOf="@+id/constraint_progress_bar"
+                app:layout_constraintTop_toTopOf="@+id/pb_temp"
+                tools:progress="30" />
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/cardView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:cardCornerRadius="20dp"-->
-<!--        app:cardElevation="4dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.5">-->
+            <TextView
+                android:id="@+id/tv_hum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="- -"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/pb_hum"
+                app:layout_constraintEnd_toEndOf="@+id/pb_hum"
+                app:layout_constraintStart_toStartOf="@+id/pb_hum"
+                app:layout_constraintTop_toTopOf="@+id/pb_hum" />
 
-        <Button
-            android:id="@+id/btn_state"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:background="@drawable/shaping_rectangle_button_control"
-            android:textColor="@color/purple_500"
-            android:gravity="center"
-            android:text="state"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-<!--    </androidx.cardview.widget.CardView>-->
+            <TextView
+                android:id="@+id/tv_hum_keterangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="keterangan"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/pb_hum"
+                app:layout_constraintStart_toStartOf="@+id/pb_hum"
+                app:layout_constraintTop_toBottomOf="@id/pb_hum"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <ProgressBar
+                android:id="@+id/pb_temp"
+                style="@style/CircularDeterminateProgressBar"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:animationResolution="1000"
+                android:max="100"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/constraint_progress_bar"
+                app:layout_constraintStart_toEndOf="@+id/pb_hum"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:progress="90" />
+
+            <TextView
+                android:id="@+id/tv_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="- -"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/pb_temp"
+                app:layout_constraintEnd_toEndOf="@+id/pb_temp"
+                app:layout_constraintStart_toStartOf="@+id/pb_temp"
+                app:layout_constraintTop_toTopOf="@+id/pb_temp" />
+
+            <TextView
+                android:id="@+id/tv_temp_keterangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="keterangan"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/pb_temp"
+                app:layout_constraintStart_toStartOf="@+id/pb_temp"
+                app:layout_constraintTop_toBottomOf="@id/pb_temp"
+                tools:layout_editor_absoluteY="0dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_power"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:maxHeight="40dp"
+        android:maxWidth="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintVertical_bias="0.02" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
