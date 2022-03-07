@@ -34,6 +34,7 @@ class MainViewModel : ViewModel() {
                             data.child("temp").value.toString()
                     ))
                 }
+                arrData.reverse()
                 _data.value = arrData
                 _state.value = snapshot.child("state").value.toString() == "1"
             }

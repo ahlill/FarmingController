@@ -1,15 +1,17 @@
 package id.belajar.controller
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import id.belajar.controller.Helper.ProgressBarAnimation
 import id.belajar.controller.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels()
-
     private val activityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     private lateinit var mProgressAnimationHum: ProgressBarAnimation
@@ -25,8 +27,9 @@ class MainActivity : AppCompatActivity() {
             state(state)
             if (state == true) {
                 mainViewModel.data.observe(this, { data ->
-                    initHum(data.last().hum)
-                    initTemp(data.last().temp)
+                    initHum(data[0].hum)
+                    initTemp(data[0].temp)
+                    showData(data) //menampilkan data recycler view
                 })
             } else {
                 initFalse()
@@ -47,13 +50,13 @@ class MainActivity : AppCompatActivity() {
                 tvHum.text = "$mHum %"
                 tvHumKeterangan.text = when (mHum) {
                     in 0..60 -> {
-                        "kelembaban rendah"
+                        "rendah"
                     }
                     in 60..80 -> {
                         "normal"
                     }
                     in 80..100 -> {
-                        "Kelembaban tinggi"
+                        "tinggi"
                     }
                     else -> {
                         "Error"
@@ -72,13 +75,13 @@ class MainActivity : AppCompatActivity() {
                 tvTemp.text = "$mTemp C"
                 tvTempKeterangan.text = when (mTemp) {
                     in 0..60 -> {
-                        "suhu rendah"
+                        "rendah"
                     }
                     in 60..80 -> {
                         "normal"
                     }
                     in 80..100 -> {
-                        "suhu tinggi"
+                        "tinggi"
                     }
                     else -> {
                         "Error"
@@ -103,5 +106,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun state(state: Boolean?) {
         activityMainBinding.btnPower.setImageResource(if (state == true) R.drawable.ic_power_on else R.drawable.ic_power_off)
+    }
+
+    private fun showData(dataItems: ArrayList<MainModel>) = with(activityMainBinding) {
+        rvData.layoutManager = LinearLayoutManager(this@MainActivity)
+        rvData.setHasFixedSize(true)
+        val adapter = DataAdapter(dataItems)
+        rvData.adapter = adapter
     }
 }
