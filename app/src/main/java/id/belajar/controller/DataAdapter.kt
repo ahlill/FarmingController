@@ -23,8 +23,8 @@ class DataAdapter(private val dataItems: ArrayList<MainModel>) : RecyclerView.Ad
             RecyclerView.ViewHolder(binding.root) {
 
         internal fun bind(data: MainModel?) = with(binding) {
-
-            tvItemDate.text = "tanggal data"
+            val tanggal = Helper().getDateTime(data?.timeStamp)
+            tvItemDate.text = tanggal
             tvItemHum.text = data?.hum
             tvItemTemp.text = data?.temp
         }

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Controller</string>
-    <string name="hum">"%d \U0025"</string>
-    <string name="temp"></string>
+    <string name="icon">icon</string>
+    <!--    <string name="hum">"%d ℃"</string>-->
+    <!--    <string name="temp"></string>-->
 
 </resources>

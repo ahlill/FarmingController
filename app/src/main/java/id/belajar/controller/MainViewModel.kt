@@ -30,6 +30,7 @@ class MainViewModel : ViewModel() {
                     Log.d(TAG, "onDataChange1: ${data.value}")
 
                     arrData.add(MainModel(
+                            data.key.toString(),
                             data.child("hum").value.toString(),
                             data.child("temp").value.toString()
                     ))

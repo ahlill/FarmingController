@@ -10,8 +10,6 @@
 
     <TextView
         android:id="@+id/tv_item_date"
-        android:gravity="left"
-        android:paddingStart="4dp"
         style="@style/TextDataItem"
         android:text="tanggal"
         app:layout_constraintStart_toStartOf="parent"

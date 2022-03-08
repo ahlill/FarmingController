@@ -1,6 +1,7 @@
 package id.belajar.controller
 
-class MainModel (
-    val hum: String,
-    val temp: String
+class MainModel(
+        val timeStamp: String,
+        val hum: String,
+        val temp: String
 )

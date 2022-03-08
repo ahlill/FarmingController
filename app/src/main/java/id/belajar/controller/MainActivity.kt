@@ -1,8 +1,7 @@
 package id.belajar.controller
 
-import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +19,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activityMainBinding.root)
-        supportActionBar?.hide()
+
+        if (!Helper().checkConnection(this)){
+            noConnection()
+        }
 
         initProgressBar()
         mainViewModel.state.observe(this, { state ->
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 mainViewModel.data.observe(this, { data ->
                     initHum(data[0].hum)
                     initTemp(data[0].temp)
-                    showData(data) //menampilkan data recycler view
+                    showData(data)
                 })
             } else {
                 initFalse()
@@ -37,8 +39,13 @@ class MainActivity : AppCompatActivity() {
         })
 
         activityMainBinding.btnPower.setOnClickListener {
-            val state = if (mainViewModel.state.value == true) 0 else 1
-            mainViewModel.state(state) //mengirim data ke server
+            if (Helper().checkConnection(this)){
+                val state = if (mainViewModel.state.value == true) 0 else 1
+                mainViewModel.state(state) //mengirim data ke server
+            }else{
+                noConnection()
+            }
+
         }
     }
 
@@ -66,21 +73,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun initTemp(temp: String) {
         if (temp != "null") {
             val mTemp = temp.toInt()
             mProgressAnimationTemp.setProgress(mTemp)
             with(activityMainBinding) {
-                tvTemp.text = "$mTemp C"
+                tvTemp.text = "$mTemp ℃"
                 tvTempKeterangan.text = when (mTemp) {
-                    in 0..60 -> {
+                    in 0..25 -> {
                         "rendah"
                     }
-                    in 60..80 -> {
+                    in 25..37 -> {
                         "normal"
                     }
-                    in 80..100 -> {
+                    in 37..100 -> {
                         "tinggi"
                     }
                     else -> {
@@ -96,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding.tvHum.text = "- - %"
 
         mProgressAnimationTemp.setProgress(0)
-        activityMainBinding.tvTemp.text = "- - C"
+        activityMainBinding.tvTemp.text = "- - ℃"
     }
 
     private fun initProgressBar() {
@@ -114,4 +120,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = DataAdapter(dataItems)
         rvData.adapter = adapter
     }
+
+    private fun noConnection(){
+        val i = Intent(this, NoConnectionActivity::class.java)
+        startActivity(i)
+    }
+
 }
