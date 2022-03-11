@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/ic_no_connection"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,8 +22,8 @@
     <Button
         android:id="@+id/btn_refresh"
         android:background="@drawable/shaping_rectangle_button_control"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:textColor="@color/black"
         android:text="refresh"
         app:layout_constraintEnd_toEndOf="@+id/imageView"

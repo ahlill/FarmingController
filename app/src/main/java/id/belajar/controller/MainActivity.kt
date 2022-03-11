@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             val mHum = hum.toInt()
             mProgressAnimationHum.setProgress(mHum)
             with(activityMainBinding) {
-                tvHum.text = "$mHum %"
+                tvHum.text = getString(R.string.hum, mHum)
                 tvHumKeterangan.text = when (mHum) {
                     in 0..60 -> {
                         "rendah"
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             val mTemp = temp.toInt()
             mProgressAnimationTemp.setProgress(mTemp)
             with(activityMainBinding) {
-                tvTemp.text = "$mTemp ℃"
+                tvTemp.text = getString(R.string.temp, mTemp)
                 tvTempKeterangan.text = when (mTemp) {
                     in 0..25 -> {
                         "rendah"

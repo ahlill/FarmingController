@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">Controller</string>
     <string name="icon">icon</string>
-    <!--    <string name="hum">"%d ℃"</string>-->
-    <!--    <string name="temp"></string>-->
+    <string name="no_data">- -</string>
+    <string name="keterangan">keterangan</string>
+    <string name="table_head_content_date">Tanggal</string>
+    <string name="table_head_content_temperature">Temperature</string>
+    <string name="table_head_content_humidity">Humidity</string>
+
+    <string name="hum">%d %%</string>
+    <string name="temp">%d ℃</string>
+
+    <string name="pattern_date">dd/MM - HH:mm:ss</string>
+
+
 
 </resources>

@@ -11,16 +11,16 @@
         android:id="@+id/btn_power"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:maxHeight="40dp"
+        android:contentDescription="@string/icon"
         android:maxWidth="40dp"
-        tools:src="@drawable/ic_power_off"
+        android:maxHeight="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintVertical_bias="0.02"
-        android:contentDescription="@string/icon" />
+        tools:src="@drawable/ic_power_off" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="- -"
+                android:text="@string/no_data"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/pb_hum"
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="keterangan"
+                android:text="@string/keterangan"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/pb_hum"
@@ -94,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="- -"
+                android:text="@string/no_data"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/pb_temp"
@@ -107,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="keterangan"
+                android:text="@string/keterangan"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/pb_temp"
@@ -118,74 +118,20 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/rv_data"
-        app:layout_constraintEnd_toEndOf="@+id/rv_data"
-        app:layout_constraintStart_toStartOf="@+id/rv_data">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="@id/tv_item_hum"
-            app:layout_constraintStart_toStartOf="@id/tv_item_date"
-            app:layout_constraintBottom_toTopOf="@id/tv_item_hum" />
-
-        <TextView
-            android:id="@+id/tv_item_date"
-            style="@style/TextHeadDataItem"
-            android:text="tanggal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_item_hum"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_item_hum"
-            style="@style/TextHeadDataItem"
-            android:text="humidity"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_item_temp"
-            app:layout_constraintStart_toEndOf="@id/tv_item_date"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_item_temp"
-            android:layout_marginEnd="2dp"
-            style="@style/TextHeadDataItem"
-            android:text="temperature"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_item_hum"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"
-            app:layout_constraintEnd_toEndOf="@id/tv_item_hum"
-            app:layout_constraintStart_toStartOf="@id/tv_item_date"
-            app:layout_constraintTop_toBottomOf="@id/tv_item_hum" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_data"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:listitem="@layout/data_item"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        tools:listitem="@layout/data_item" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    <com.borutsky.neumorphism.NeumorphicFrameLayout-->
     <!--        android:id="@+id/firstBlock"-->
